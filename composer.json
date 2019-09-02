@@ -1,0 +1,29 @@
+{
+  "name": "patrikap/laravel-api-logger",
+  "description": "A Laravel 5 package to log API requests",
+  "keywords": [
+    "patrikap",
+    "laravel-api-logger"
+  ],
+  "homepage": "https://github.com/patrikap/laravel-api-logger",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Konstantin K.",
+      "email": "patrikap@gmail.com",
+      "homepage": "http://u-crd.ru",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.2",
+    "illuminate/support": "~5.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Patrikap\\ApiLogger\\": "src"
+    }
+  }
+}
