@@ -2,8 +2,8 @@
 
 namespace Patrikap\ApiLogger\Contracts;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 interface LogWriter
 {
@@ -16,8 +16,8 @@ interface LogWriter
 
     /**
      * логирует ответ
-     * @param Response $response
+     * @param JsonResponse $response
      * @return mixed
      */
-    public function logResponse(Response $response);
+    public function logResponse(JsonResponse $response);
 }

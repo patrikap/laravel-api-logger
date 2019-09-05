@@ -3,6 +3,7 @@
 namespace Patrikap\ApiLogger\Middlewares;
 
 use Closure;
+use Illuminate\Http\Request;
 use Patrikap\ApiLogger\Contracts\LogProfile;
 use Patrikap\ApiLogger\Contracts\LogWriter;
 
@@ -17,7 +18,7 @@ class ApiLogger
         $this->logWriter = $logWriter;
     }
 
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if (config('api-logger.enabled') && $this->logProfile->shouldLogRequest($request)) {
             $this->logProfile->init();
@@ -27,7 +28,7 @@ class ApiLogger
         return $next($request);
     }
 
-    public function terminate($request, $response)
+    public function terminate(Request $request, $response)
     {
         if (config('api-logger.enabled') && $this->logProfile->shouldLogRequest($request)) {
             $this->logWriter->logResponse($response);

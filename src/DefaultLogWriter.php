@@ -2,8 +2,8 @@
 
 namespace Patrikap\ApiLogger;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Patrikap\ApiLogger\Contracts\LogWriter;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -27,7 +27,7 @@ class DefaultLogWriter implements LogWriter
         Log::info($message);
     }
 
-    public function logResponse(Response $response)
+    public function logResponse(JsonResponse $response)
     {
         $endTime = microtime(true);
         $request_id = resolve('request_id');
